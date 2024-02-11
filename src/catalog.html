@@ -11,17 +11,16 @@
 			<section class="page__catalog catalog">
 				<div class="catalog__container">
 					<aside class="catalog__filter filter">
-						<div class="filter__header">
-							<h4 class="filter__title">Filter</h4>
-							<button type="button" class="filter__open _icon-filter"></button>
-						</div>
+						<h4 data-spoller="open" class="filter__title title-filter">
+							<button type="button" class="title-filter__button title-filter__button--main _icon-filter">Filter</button>
+						</h4>
 						<form action="#" class="filter__body">
 							<div class="filter__section section-filter">
 								<div class="section-filter__body">
 									<nav class="section-filter__menu menu-filter">
 										<ul class="menu-filter__list">
 											<li class="menu-filter__item">
-												<a href="#" class="menu-filter__link _icon-ch-right">Tops</a>
+												<a href="#" class="menu-filter__link _icon-ch-right active">Tops</a>
 											</li>
 											<li class="menu-filter__item">
 												<a href="#" class="menu-filter__link _icon-ch-right">Printed T-shirts</a>
@@ -52,19 +51,19 @@
 								</div>
 							</div>
 							<div class="filter__section section-filter">
-								<h5 class="section-filter__title _icon-ch-up">Price</h5>
+								<h5 data-spoller="open" class="section-filter__title title-filter">
+									<button type="button" class="title-filter__button _icon-ch-down">Price</button>
+								</h5>
 								<div class="section-filter__body">
 									<div class="section-filter__price price-filter">
-										<div class="price-filter__range">
-											<div class="price-filter__inputs">
-												<input type="text" name="price-from" class="price-filter__input">
-												<input type="text" name="price-to" class="price-filter__input">
-											</div>
+										<div class="price-filter__range"></div>
+										<div class="price-filter__inputs">
+											<input type="text" name="price-from" class="price-filter__input price-filter__input--from">
+											<input type="text" name="price-to" class="price-filter__input price-filter__input--to">
 										</div>
 									</div>
 								</div>
 							</div>
-
 						</form>
 					</aside>
 

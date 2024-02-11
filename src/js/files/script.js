@@ -10,7 +10,6 @@ document.addEventListener("click", documentActions);
 
 function documentActions(e) {
 	const targetElement = e.target;
-
 	if (targetElement.closest('.icon-menu')) {
 		document.body.classList.toggle('menu-open');
 	}
@@ -23,14 +22,14 @@ function documentActions(e) {
 	}
 }
 
+// Spollers
 const spollers = document.querySelectorAll('[data-spoller]');
 
 if (spollers.length) {
 	spollers.forEach(spoller => {
-		spoller.nextElementSibling.hidden = true;
+		spoller.dataset.spoller !== 'open' ? spoller.nextElementSibling.hidden = true : spoller.classList.add('active')
 	});
 }
-
 
 let slideDown = (target, duration = 500) => {
 	if (!target.classList.contains('--sliding')) {
