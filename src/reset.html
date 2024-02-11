@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Reset Password"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_subheader.htm',{})
+
+		<main class="page">
+			<div class="fullscreen">
+				<section class="page__reset sign-block">
+					<div class="sign-block__container">
+						<div class="sign-block__image">
+							<img src="@img/sign-pages/reset/reset.jpg" alt="Image">
+						</div>
+						<div class="sign-block__content">
+							<div class="sign-block__body">
+								<div class="sign-block__header header-sign">
+									<h1 class="header-sign__title">Reset Your Password</h1>
+									<div class="header-sign__text">
+										<p>Enter your email and we'll send you a link to reset your password.</p>
+										<a href="#">Please  check it.</a>
+									</div>
+								</div>
+								<form class="sign-block__form form-sign" action="files/sendmail/sendmail.php" method="POST">
+									<div class="form-sign__body">
+										<div class="form-sign__item item-form">
+											<label class="item-form__label" for="email">Email</label>
+											<input data-validate class="item-form__input" id="email" required type="email" name="email">
+											<div class="item-form__text">We can not find your email.</div>
+										</div>
+									</div>
+									<div class="form-sign__actions">
+										<a href="check-email.html" class="form-sign__button button" form="form-sign">Send</a>
+										<div class="form-sign__text">
+											<p>Back to <a href="sign-in.html">Login</a></p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

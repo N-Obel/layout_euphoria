@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Verification"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_subheader.htm',{})
+
+		<main class="page">
+			<div class="fullscreen">
+				<section class="page__verification sign-block">
+					<div class="sign-block__container">
+						<div class="sign-block__image">
+							<img src="@img/sign-pages/verification/verification.jpg" alt="Image">
+						</div>
+						<div class="sign-block__content">
+							<div class="sign-block__body">
+								<div class="sign-block__header header-sign">
+									<h1 class="header-sign__title">Verification</h1>
+									<div class="header-sign__text">
+										<p>Verify your code.</p>
+									</div>
+								</div>
+								<form class="sign-block__form form-sign" action="files/sendmail/sendmail.php" method="POST">
+									<div class="form-sign__body">
+										<div class="form-sign__item item-form">
+											<label class="item-form__label" for="code">Verification Code </label>
+											<input data-validate class="item-form__input" id="code" required type="number" name="code">
+											<div class="item-form__text">Wrong code. Please try again</div>
+										</div>
+									</div>
+									<div class="form-sign__actions">
+										<button type="submit" class="form-sign__button button" form="form-sign">Verify Code</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
+

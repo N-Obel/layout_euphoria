@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Catalog"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="page__catalog catalog">
+				<div class="catalog__container">
+					<aside class="catalog__filter filter">
+						<div class="filter__header">
+							<h4 class="filter__title">Filter</h4>
+							<button type="button" class="filter__open _icon-filter"></button>
+						</div>
+						<form action="#" class="filter__body">
+							<div class="filter__section section-filter">
+								<div class="section-filter__body">
+									<nav class="section-filter__menu menu-filter">
+										<ul class="menu-filter__list">
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Tops</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Printed T-shirts</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Plain T-shirts</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Kurti</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Boxers</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Full sleeve T-shirts</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Joggers</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Payjamas</a>
+											</li>
+											<li class="menu-filter__item">
+												<a href="#" class="menu-filter__link _icon-ch-right">Tops</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<div class="filter__section section-filter">
+								<h5 class="section-filter__title _icon-ch-up">Price</h5>
+								<div class="section-filter__body">
+									<div class="section-filter__price price-filter">
+										<div class="price-filter__range">
+											<div class="price-filter__inputs">
+												<input type="text" name="price-from" class="price-filter__input">
+												<input type="text" name="price-to" class="price-filter__input">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</aside>
+
+					<div class="catalog__body">
+						<div class="catalog__header">
+							<h1 class="catalog__title">Women’s Clothing</h1>
+							<ul class="catalog__type type-catalog">
+								<li class="type-catalog__item">
+									<button type="button" class="type-catalog__button type-catalog__button--active">New</button>
+								</li>
+								<li class="type-catalog__item">
+									<button type="button" class="type-catalog__button">Recommended</button>
+								</li>
+							</ul>
+						</div>
+						<div class="catalog__items">
+							<!-- items -->
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html

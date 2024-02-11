@@ -1,0 +1,67 @@
+//========================================================================================================================================================
+// --== CATALOG ==--
+//========================================================================================================================================================
+
+.catalog {
+	@include adaptiveValue("padding-top", 108, 65);
+	// .catalog__filter
+	&__filter {
+	}
+}
+
+.filter {
+	// .filter__header
+	&__header {
+	}
+	// .filter__title
+	&__title {
+	}
+	// .filter__open
+	&__open {
+	}
+	// .filter__body
+	&__body {
+	}
+	// .filter__section
+	&__section {
+	}
+}
+
+.section-filter {
+	// .section-filter__body
+	&__body {
+	}
+	// .section-filter__menu
+	&__menu {
+	}
+	// .section-filter__title
+	&__title {
+	}
+	// .section-filter__price
+	&__price {
+	}
+}
+
+.menu-filter {
+	// .menu-filter__list
+	&__list {
+	}
+	// .menu-filter__item
+	&__item {
+	}
+	// .menu-filter__link
+	&__link {
+	}
+}
+
+.price-filter {
+	// .price-filter__range
+	&__range {
+	}
+	// .price-filter__inputs
+	&__inputs {
+	}
+	// .price-filter__input
+	&__input {
+	}
+}

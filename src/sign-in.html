@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Sign In"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_subheader.htm',{})
+
+		<main class="page">
+			<div class="fullscreen">
+				<section class="page__sign-in sign-block">
+					<div class="sign-block__container">
+						<div class="sign-block__image">
+							<img src="@img/sign-pages/sign-in/sign-in.jpg" alt="Image">
+						</div>
+						<div class="sign-block__content">
+							<div class="sign-block__body">
+								<div class="sign-block__header header-sign">
+									<h1 class="header-sign__title">Sign In Page</h1>
+									<div class="header-sign__actions">
+										<a href="#" class="header-sign__link header-sign__link--google">Continue With Google</a>
+										<a href="#" class="header-sign__link header-sign__link--twitter">Continue With Twitter</a>
+									</div>
+								</div>
+								<div class="sign-block__divider">
+									<p>OR</p>
+								</div>
+								<form class="sign-block__form form-sign" action="files/sendmail/sendmail.php" method="POST">
+									<div class="form-sign__body">
+										<div class="form-sign__item item-form">
+											<label class="item-form__label" for="name">User name or email address</label>
+											<input data-validate class="item-form__input" id="name" required type="text" name="name">
+											<div class="item-form__text">Wrong name or email</div>
+										</div>
+										<div class="form-sign__item item-form">
+											<div class="item-form__header">
+												<label class="item-form__label" for="password">Password</label>
+												<button type="submit" class="item-form__button _icon-eye-hide">Hide</button>
+											</div>
+											<input data-validate class="item-form__input" id="password" required type="password" name="password" data-error="Wrong password">
+											<a href="reset.html" class="item-form__link">Forget your password</a>
+										</div>
+									</div>
+									<div class="form-sign__actions">
+										<button type="submit" class="form-sign__button button" form="form-sign">Sign In</button>
+										<div class="form-sign__text">
+											<p>Don’t have an account? <a href="sign-up.html">Sign up</a></p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

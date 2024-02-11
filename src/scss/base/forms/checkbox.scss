@@ -1,0 +1,50 @@
+.checkbox {
+	position: relative;
+	&:not(:last-child) {
+		margin-bottom: em(5);
+	}
+	// .checkbox__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		&:focus-visible + .checkbox__label:before {
+			box-shadow: 0 0 toRem(5) #000;
+		}
+		&:checked + .checkbox__label:before {
+			background: url('@img/sign-pages/sign-up/checkbox.svg') center no-repeat;
+		}
+	}
+	// .checkbox__label
+	&__label {
+		cursor: pointer;
+		display: inline-flex;
+		position: relative;
+		gap: toRem(10);
+		&:before {
+			content: "";
+			align-self: flex-start;
+			flex: 0 0 toRem(18);
+			width: toRem(18);
+			height: toRem(18);
+			border: toRem(1) solid #a7a9ac;
+			border-radius: toRem(4);
+		}
+	}
+	// .checkbox__text
+	&__text {
+		font-weight: 500;
+		align-self: center;
+		a {
+			text-decoration: underline;
+			text-decoration-color: initial;
+			transition: all 0.3s;
+			@media (any-hover: hover){
+				&:hover{
+					text-decoration-color: transparent;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,658 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+//========================================================================================================================================================
+// Title //
+.title {
+	@extend %CS;
+	font-weight: 600;
+	color: $darkColor;
+	letter-spacing: toRem(0.68);
+	@include adaptiveValue("font-size", 36, 26);
+	line-height: 1.1;
+	display: flex;
+	align-items: flex-start; //flex-start
+	gap: em(20, 36);
+	&::before {
+		content: "";
+		border-radius: toRem(10);
+		background-color: $purplColor;
+		flex: 0 0 toRem(6);
+		margin-top: em(5, 36);
+		width: toRem(6);
+		height: em(30, 36);
+	}
+	&--margin {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 70, 25);
+		}
+	}
+}
+
+//========================================================================================================================================================
+// Product Preview Cart //
+.item-product {
+	position: relative;
+	display: grid;
+	//gap: toRem(30);
+	@include adaptiveValue("gap", 30, 16, 0, $containerWidth, 767.98);
+	&--category {
+		//@include adaptiveValue("gap", 25, 15);
+		gap: toRem(16);
+	}
+	// .item-product__picture-link
+	&__picture-link {
+		display: block;
+		overflow: hidden;
+		border-radius: toRem(10);
+	}
+	// .item-product__image
+	&__image {
+		aspect-ratio: 282 / 370;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: toRem(10);
+		transition: all 0.4s;
+		.item-product--category & {
+			aspect-ratio: 270 / 393;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				transform: scale(1.04);
+			}
+		}
+	}
+	// .item-product__body
+	&__body {
+		display: grid;
+		grid-template: auto auto / 1fr auto;
+		row-gap: toRem(5);
+		//column-gap: toRem(35);
+		@include adaptiveValue("column-gap", 35, 20, 0, $containerWidth, 767.98);
+	}
+	// .item-product__title
+	&__title {
+		font-weight: 600;
+		color: $darkColor;
+		font-size: toRem(16);
+		min-width: 0; //! БЕЗ этого НЕ работает сворачивание текста и "..."
+		.item-product--category & {
+			font-size: toRem(18);
+			font-weight: 700;
+		}
+	}
+	// .item-product__link-title
+	&__link-title {
+		text-overflow: ellipsis; //!сворачивание текста и ...
+		white-space: nowrap;
+		overflow: hidden;
+		display: block;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .item-product__label
+	&__label {
+		grid-row: 2 / 3;
+		font-size: toRem(14);
+		font-weight: 500;
+	}
+	&__link,
+	&__price {
+		// align-self: center;
+		grid-column: 2 / 3;
+		grid-row: span 2;
+	}
+	// .item-product__link
+	&__link {
+		display: flex;
+		align-items: center;
+		&::before {
+			transition: color 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: #000;
+			}
+		}
+	}
+	// .item-product__price
+	&__price {
+		align-self: center;
+		border-radius: toRem(8);
+		background-color: $liteColor;
+		padding: toRem(10) toRem(20);
+		font-weight: 700;
+		font-size: toRem(14);
+		color: $darkColor;
+		@media (max-width: $mobileSmall) {
+			padding: toRem(8);
+		}
+	}
+	// .item-product__favorite
+	&__favorite {
+		position: absolute;
+		top: 5%; /* 28/282 */
+		right: 7%; /* 22/370 */
+		// top: toRem(26);
+		// right: toRem(20);
+		width: toRem(32);
+		height: toRem(32);
+		border-radius: 50%;
+		background-color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 10;
+		&::before {
+			transition: all 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: red;
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+// Button //
+.button {
+	font-family: "Causten";
+	background-color: $purplColor;
+	padding: toRem(16) toRem(20);
+	font-size: toRem(18);
+	font-weight: 500;
+	color: #fff;
+	line-height: 1.22222222;
+	text-align: center;
+	border-radius: toRem(8);
+	transition: all 0.4s;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: #6620c1;
+			box-shadow: 0 toRem(3) toRem(4) 0 rgba(0, 0, 0, 0.1);
+		}
+		&:focus {
+			background-color: #6620c1;
+		}
+		&:disabled {
+			background-color: #eaeaea;
+			cursor: default;
+			color: #807d7e;
+		}
+	}
+	&--border {
+		color: $darkColor;
+		background-color: #fff;
+		border: toRem(1) solid #bebcbd;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $purplColor;
+				background-color: #fff;
+				box-shadow: none;
+			}
+			&:focus {
+				background-color: #fff;
+				color: $purplColor;
+				border: toRem(1) solid $purplColor;
+			}
+			&:disabled {
+				background-color: #eaeaea;
+				cursor: default;
+				color: #807d7e;
+			}
+		}
+	}
+	&--white {
+		background-color: #fff;
+		color: $darkColor;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+				background-color: $purplColor;
+			}
+			&:focus {
+				color: #fff;
+				background-color: $purplColor;
+				box-shadow: none;
+			}
+			&:disabled {
+				background-color: #eaeaea;
+				cursor: default;
+				color: #807d7e;
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+// Sign-blocks //
+
+.fullscreen {
+	min-height: 100vh;
+}
+
+.sign-block {
+	@include adaptiveValue("padding-top", 111, 70, 0, $containerWidth, 767.98);
+	// @media (min-width: $tablet) {
+	// 	min-height: 100vh;
+	// }
+	// .sign-block__container
+	&__container {
+		min-height: 100vh;
+		//min-height: calc(100vh - 111px);
+		display: flex;
+		justify-content: flex-end;
+		@media (max-width: em(560)) {
+			flex-direction: column-reverse;
+			gap: toRem(20);
+		}
+	}
+	// .sign-block__image	48.263889%; /* 695/1440 */	56.048387%; /* 695/1240 */
+	&__image {
+		//flex-basis: 48.263889%;
+		//min-width: 50vw; //<--!!!!
+		position: relative;
+		padding-bottom: 72.698745%; /* 695/956 */
+		@media (min-width: em(560)) {
+			flex: 0 0 calc(((100vw - 30px) * 0.48) + 15px);
+		}
+		@media (max-width: em(560)) {
+			margin: 0 toRem(-15);
+		}
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+	// .sign-block__content //45.806452%; /* 568/1240 */ 39.444444%; /* 568/1440 */
+	&__content {
+		flex: 0 0 45.806452%;
+		//flex-basis: 45.806452%;
+		min-width: 50%;
+		@include adaptiveValue("margin-left", 77, 30, 0, $containerWidth, 767.98);
+		@media (max-width: em(560)) {
+			margin-left: 0;
+		}
+	}
+	// .sign-block__body
+	&__body {
+		@include adaptiveValue("padding-top", 60, 30, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-bottom", 200, 30, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-left", 52, 0, 0, $containerWidth, 767.98);
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 50, 25, 0, $containerWidth, 767.98);
+		@media (max-width: em(560)) {
+			margin-left: 0;
+			padding-bottom: 0;
+		}
+	}
+	// .sign-block__header
+	&__header {
+	}
+	// .sign-block__divider
+	&__divider {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+		@include adaptiveValue("gap", 23, 8, 0, $containerWidth, 767.98);
+		&::before {
+			content: "";
+			width: 100%;
+			height: toRem(2);
+			background-color: rgba(102, 102, 102, 0.25);
+		}
+		&::after {
+			content: "";
+			width: 100%;
+			height: toRem(2);
+			background-color: rgba(102, 102, 102, 0.25);
+		}
+	}
+	// .sign-block__form
+	&__form {
+	}
+}
+
+.header-sign {
+	// .header-sign__title
+	&__title {
+		color: $darkColor;
+		@extend %CS;
+		@include adaptiveValue("font-size", 34, 24, 0, $containerWidth, 767.98);
+		font-weight: 600;
+		line-height: 97%;
+		text-align: left;
+		&:not(:last-child) {
+			margin-bottom: toRem(10);
+		}
+		.page__sign-in & {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 50, 25, 0, $containerWidth, 767.98);
+			}
+		}
+		.page__check-email & {
+			@include adaptiveValue("margin-bottom", 30, 10, 0, $containerWidth, 767.98);
+		}
+	}
+	// .header-sign__text
+	&__text {
+		font-weight: 500;
+		font-size: toRem(16);
+		line-height: 1.2;
+		.page__sign-up & {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 50, 25, 0, $containerWidth, 767.98);
+			}
+		}
+		p {
+			&:not(:last-child) {
+				margin-bottom: toRem(4);
+			}
+			.page__check-email & {
+				@include adaptiveValue("margin-bottom", 30, 10, 0, $containerWidth, 767.98);
+			}
+			&:nth-child(1) {
+				a {
+					color: $purplColor;
+					font-size: toRem(16);
+					font-weight: 700;
+					line-height: 1.2;
+					letter-spacing: toRem(0.32);
+					transition: all 0.4s;
+					text-decoration: underline;
+					text-decoration-color: initial;
+					@media (any-hover: hover) {
+						&:hover {
+							text-decoration-color: transparent;
+						}
+					}
+				}
+			}
+			&:nth-child(2) {
+				a {
+					text-decoration: underline;
+					text-decoration-color: initial;
+					@media (any-hover: hover) {
+						&:hover {
+							text-decoration-color: transparent;
+						}
+					}
+				}
+				&::before {
+					content: "";
+					margin-right: toRem(8);
+					width: toRem(13);
+					height: toRem(13);
+					background: url("@img/sign-pages/check-email/ar_left.svg") 0 toRem(2) / toRem(13) toRem(13) no-repeat;
+				}
+			}
+		}
+		a {
+			color: rgba(102, 102, 102, 0.8);
+			font-size: toRem(16);
+			line-height: 1.2;
+			font-weight: 500;
+			transition: all 0.4s;
+			text-decoration-color: transparent;
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: underline;
+					text-decoration-color: initial;
+				}
+			}
+		}
+	}
+	// .header-sign__actions
+	&__actions {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 20, 10, 0, $containerWidth, 767.98);
+	}
+	// .header-sign__link
+	&__link {
+		padding: toRem(10) toRem(15);
+		@media (min-width: $mobile) {
+			padding: toRem(15) toRem(20);
+		}
+		color: $purplColor;
+		//font-size: toRem(22);
+		@include adaptiveValue("font-size", 22, 20, 0, $containerWidth, 767.98);
+		font-weight: 500;
+		line-height: 118%;
+		text-align: center;
+		border: toRem(1) solid $darkColor;
+		border-radius: toRem(8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: toRem(12);
+		transition: all 0.4s;
+		&--google {
+			&::before {
+				content: "";
+				width: toRem(20);
+				height: toRem(20);
+				flex: 0 0 toRem(20);
+				background: url("@img/sign-pages/sign-in/google.svg") center no-repeat;
+			}
+		}
+		&--twitter {
+			&::before {
+				content: "";
+				width: toRem(20);
+				height: toRem(20);
+				flex: 0 0 toRem(20);
+				background: url("@img/sign-pages/sign-in/twitter.svg") center no-repeat;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #dbdada;
+				border: toRem(1) solid transparent;
+			}
+		}
+	}
+}
+
+.form-sign {
+	// .form-sign__body
+	&__body {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 15, 0, $containerWidth, 767.98);
+		}
+		.page__sign-in & {
+			@include adaptiveValue("margin-bottom", 30, 15, 0, $containerWidth, 767.98);
+		}
+		.page__reset & {
+			@include adaptiveValue("margin-bottom", 40, 25, 0, $containerWidth, 767.98);
+		}
+	}
+	// .form-sign__item
+	&__item {
+	}
+	// .form-sign__actions
+	&__actions {
+	}
+	// .form-sign__button
+	&__button {
+		color: #fff;
+		font-weight: 500;
+		line-height: 1.2;
+		min-width: toRem(167);
+		&:not(:last-child) {
+			margin-bottom: toRem(10);
+		}
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
+	// .form-sign__text
+	&__text {
+		color: $darkColor;
+		@include adaptiveValue("font-size", 16, 14, 0, $containerWidth, 767.98);
+		line-height: 1.2;
+		a {
+			text-decoration-color: initial;
+			text-decoration: underline;
+			transition: all 0.3s;
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration-color: transparent;
+				}
+			}
+		}
+	}
+}
+
+.item-form {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(10);
+	&:not(:last-child) {
+		//margin-bottom: toRem(10);
+		@include adaptiveValue("margin-bottom", 40, 10, 0, $containerWidth, 767.98);
+	}
+	&._form-error {
+		& .item-form__text {
+			transition: all 0.4s;
+			color: red;
+			opacity: 1;
+			visibility: visible;
+			transform: translate(0, 0);
+		}
+		.page__sign-up & {
+			.item-form__text--visible {
+				color: $mainColor;
+			}
+		}
+	}
+	&:nth-child(2) {
+		& .form__error {
+			display: none;
+		}
+	}
+	&--hide {
+		position: relative;
+	}
+	.page__new-password & {
+	}
+	// .item-form__label
+	&__label {
+		color: $darkColor;
+		@include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+		line-height: 1.2;
+		letter-spacing: 0.36px;
+	}
+	// .item-form__input
+	&__input {
+		width: 100%;
+		padding: toRem(10) toRem(15);
+		@media (min-width: $mobile) {
+			padding: toRem(15) toRem(20);
+		}
+		color: $darkColor;
+		//font-size: toRem(22);
+		@include adaptiveValue("font-size", 22, 20, 0, $containerWidth, 767.98);
+		font-weight: 500;
+		line-height: 118%;
+		border: toRem(1) solid $darkColor;
+		border-radius: toRem(8);
+		gap: toRem(12);
+		transition: all 0.3s;
+		&:focus {
+			outline: toRem(1) solid $purplColor;
+			border: toRem(1) solid $purplColor;
+		}
+		.page__reset & {
+			font-size: toRem(18);
+			color: $purplColor;
+		}
+	}
+	// .item-form__header
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: toRem(20);
+	}
+	&__viewpass {
+	}
+	// .item-form__button
+	&__button {
+		@include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+		line-height: 1.2;
+		&::before {
+			@include adaptiveValue("margin-right", 15, 8, 0, $containerWidth, 767.98);
+			margin-top: toRem(4);
+			font-size: toRem(14);
+		}
+		&--hide {
+			position: absolute;
+			width: toRem(22);
+			height: toRem(22);
+			top: 42.477876%; /* 48/113 */
+			right: toRem(25);
+			&::before {
+				margin: 0;
+				//font-size: toRem(22);
+				@include adaptiveValue("font-size", 22, 16, 0, $containerWidth, 767.98);
+				@media (max-width: $mobile) {
+					//font-size: toRem(16);
+				}
+			}
+			&._viewpass-active {
+				&::before {
+					//display: none;
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+		}
+		&._viewpass-active {
+			background: url("@img/sign-pages/eye.svg") center / toRem(24) toRem(24) no-repeat;
+		}
+	}
+	// .item-form__link
+	&__link {
+		text-align: right;
+		color: $darkColor;
+		font-size: toRem(16);
+		line-height: 1.2;
+		text-decoration-color: initial;
+		text-decoration: underline;
+		transition: all 0.4s;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration-color: transparent;
+			}
+		}
+	}
+	// .item-form__text
+	&__text {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 16, 14, 0, $containerWidth, 767.98);
+		line-height: 1.2;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(0, toRem(-15));
+		&--visible {
+			color: $mainColor;
+			opacity: 1;
+			visibility: visible;
+			transform: translate(0, 0);
+		}
+	}
+}
+//========================================================================================================================================================
+// - //

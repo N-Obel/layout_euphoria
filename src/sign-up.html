@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Sign Up"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_subheader.htm',{})
+
+		<main class="page">
+			<div class="fullscreen">
+				<section class="page__sign-up sign-block">
+					<div class="sign-block__container">
+						<div class="sign-block__image">
+							<img src="@img/sign-pages/sign-up/sign-up.jpg" alt="Image">
+						</div>
+						<div class="sign-block__content">
+							<div class="sign-block__body">
+								<div class="sign-block__header header-sign">
+									<h1 class="header-sign__title">Sign Up</h1>
+									<div class="header-sign__text">
+										<p>Sign up for free to access to in any of our products</p>
+									</div>
+									<div class="header-sign__actions">
+										<a href="#" class="header-sign__link header-sign__link--google">Continue With Google</a>
+										<a href="#" class="header-sign__link header-sign__link--twitter">Continue With Twitter</a>
+									</div>
+								</div>
+								<form class="sign-block__form form-sign" action="files/sendmail/sendmail.php" method="POST">
+									<div class="form-sign__body">
+										<div class="form-sign__item item-form">
+											<label class="item-form__label" for="email">Email Address</label>
+											<input data-validate class="item-form__input" id="email" required type="email" name="email">
+											<div class="item-form__text">Error Message</div>
+										</div>
+										<div class="form-sign__item item-form">
+											<div class="item-form__header">
+												<label class="item-form__label" for="password">Password</label>
+												<button type="submit" class="item-form__button _icon-eye-hide">Hide</button>
+											</div>
+											<input data-validate class="item-form__input" id="password" required type="password" name="password" data-error="Wrong password">
+											<div class="item-form__text item-form__text--visible">Use 8 or more characters with a mix of letters, numbers & symbols</div>
+										</div>
+										<div class="form-sign__item item-form">
+											<div class="item-form__checkbox checkbox">
+												<input id="c_1" class="checkbox__input" type="checkbox" value="1" name="checkbox">
+												<label for="c_1" class="checkbox__label"><span class="checkbox__text">Agree to our <a href="#">Terms of use</a> and Privacy Policy</span></label>
+											</div>
+											<div class="item-form__checkbox checkbox">
+												<input id="c_2" class="checkbox__input" type="checkbox" value="1" name="checkbox">
+												<label for="c_2" class="checkbox__label"><span class="checkbox__text">Subscribe to our monthly newsletter</span></label>
+											</div>
+										</div>
+									</div>
+									<div class="form-sign__actions">
+										<button type="submit" class="form-sign__button button" form="form-sign">Sign Up</button>
+										<div class="form-sign__text">
+											<p>Already have an account? <a href="sign-in.html">Log in</a></p>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

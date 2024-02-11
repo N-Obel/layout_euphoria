@@ -1,0 +1,220 @@
+.subheader {
+	border-bottom: toRem(1) solid #bebcbd;
+	position: fixed; //sticky-???? mb fixed???
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: 20;
+	// .subheader__container
+	&__container {
+		padding-top: toRem(5);
+		padding-bottom: toRem(5);
+		display: flex;
+		//@include adaptiveValue("min-height", 111, 70);
+		@include adaptiveValue("min-height", 110, 70, 0, $containerWidth, 767.98);
+		justify-content: space-between;
+		align-items: center;
+		//@include adaptiveValue("column-gap", 76, 15, 0, $containerWidth, 991.98);
+		gap: toRem(20);
+
+	}
+	// .subheader__logo
+	&__logo {
+		flex: 0 0 toRem(91);
+		position: relative;
+		z-index: 4;
+		img {
+			max-width: 100%;
+		}
+	}
+	// .subheader__search
+	&__search {
+		width: 100%;
+		flex: 1 1 100%;
+		position: relative;
+		z-index: 4;
+		@media (min-width: $mobile) {
+			flex: 0 1 toRem(184);
+			max-width: toRem(184);
+		}
+	}
+	// .subheader__list
+	&__list {
+		//flex: 0 1 toRem(206);
+	}
+	// .subheader__actions
+	&__actions {
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("gap", 30, 10, 0, $containerWidth, 767.98);
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: toRem(20);
+		}
+	}
+}
+
+.search-subheader {
+	position: relative;
+	// .search-subheader__input
+	&__input {
+		border-radius: toRem(8);
+		background-color: #f6f6f6;
+		padding: toRem(12) toRem(20) toRem(12) toRem(48);
+		font-size: toRem(18);
+		width: 100%;
+		&::placeholder {
+			color: $mainColor;
+			@include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+			font-weight: 500;
+			line-height: 122%;
+			transition: opacity 0.3s;
+		}
+		&:focus {
+			outline: toRem(1) solid $purplColor;
+			border-radius: toRem(4);
+			&::placeholder {
+				opacity: 0;
+			}
+		}
+	}
+	// .search-subheader__button
+	&__button {
+		position: absolute;
+		width: toRem(14);
+		height: toRem(14);
+		top: 50%;
+		left: toRem(25);
+		transform: translate(toRem(0), -50%);
+	}
+}
+
+.actions-subheader {
+	@media (max-width: $mobile) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		overflow: auto;
+		right: -100%;
+		transition: all 0.4s;
+		z-index: 2;
+		background-color: rgb(255, 255, 255, 0.97);
+		padding: toRem(0) toRem(15) toRem(30) toRem(15);
+		@include adaptiveValue("padding-top", 120, 95, 3, 768, 320);
+		&::before {
+			content: "";
+			position: fixed;
+			width: 100%;
+			//@include adaptiveValue("height", 112, 70);
+			min-height: toRem(70);
+			background-color: #fff;
+			z-index: 3;
+			top: 0;
+			right: -100%;
+			transition: all 0.4s;
+			border-bottom: toRem(1) solid #bebcbd;
+		}
+		.menu-open & {
+			right: 0;
+			&::before {
+				right: 0;
+			}
+		}
+		@media (max-width: em(561)) {
+			padding-bottom: toRem(105);
+		}
+	}
+	// .actions-subheader__list
+	&__list {
+
+	}
+	// .actions-subheader__link
+	&__link {
+		padding: toRem(12);
+		color: $purplColor;
+		@include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+		font-weight: 500;
+		line-height: 122%;
+		//min-width: toRem(156);
+		@include adaptiveValue("min-width", 156, 120, 0, $containerWidth, 767.98);
+		text-align: center;
+		border-radius: toRem(8);
+		border: toRem(1) solid $darkColor;
+		transition: all 0.4s;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $purplColor;
+				border: toRem(1) solid transparent;
+				color: #fff;
+			}
+		}
+		// .actions-subheader__link--active
+		&--active {
+			// border: toRem(1) solid transparent;
+			// background-color: $purplColor;
+			// color: #fff;
+			//min-width: toRem(140);
+			@include adaptiveValue("min-width", 140, 100, 0, $containerWidth, 767.98);
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: $purplColor;
+				}
+				&:focus {
+					border: toRem(1) solid transparent;
+					background-color: $purplColor;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		flex: 0 0 toRem(30);
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: #000;
+			right: 0;
+			transition: all 0.4s ease 0s;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
