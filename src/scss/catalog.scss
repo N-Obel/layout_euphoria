@@ -16,12 +16,23 @@
 	// .catalog__body
 	&__body {
 		flex: 1 1 auto;
+		@include adaptiveValue("padding", 50, 20);
 	}
 	// .catalog__header
 	&__header {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(15);
+		flex-wrap: wrap;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 20);
+		}
 	}
 	// .catalog__title
 	&__title {
+		color: $darkColor;
+		font-size: toRem(22);
+		font-weight: 600;
 	}
 	// .catalog__type
 	&__type {
@@ -30,6 +41,33 @@
 	&__items {
 	}
 }
+
+//========================================================================================================================================================
+
+.type-catalog {
+	display: flex;
+	column-gap: toRem(25);
+	row-gap: toRem(10);
+	// .type-catalog__item
+	&__item {
+	}
+	// .type-catalog__button
+	&__button {
+		@extend .catalog__title;
+		transition: all 0.4s;
+		// .type-catalog__button--active
+		&--active {
+			color: $purplColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $purplColor;
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
 
 .filter {
 	border-right: toRem(1) solid #bebcbd;
@@ -86,11 +124,10 @@
 }
 //========================================================================================================================================================
 
-
 .section-filter {
 	// .section-filter__body
 	&__body {
-		padding: toRem(35) toRem(30);
+		padding: toRem(35) toRem(34);
 		border-bottom: toRem(1) solid #bebcbd;
 	}
 	// .section-filter__menu
@@ -102,7 +139,14 @@
 	// .section-filter__price
 	&__price {
 	}
+	// .section-filter__colors
+	&__colors {
+	}
+	// .section-filter__size
+	&__size {
+	}
 }
+// -------------------------- //
 
 .menu-filter {
 	// .menu-filter__list
@@ -138,6 +182,8 @@
 	}
 }
 
+// -------------------------- //
+
 .price-filter {
 	// .price-filter__range
 	&__range {
@@ -165,3 +211,137 @@
 		}
 	}
 }
+
+// -------------------------- //
+
+.colors-filter {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: toRem(15);
+	// .colors-filter__item
+	&__item {
+		display: grid;
+		gap: toRem(18);
+		color: #8a8989;
+		font-weight: 600;
+		justify-items: center;
+		align-items: center;
+		cursor: pointer;
+		&::before {
+			content: "";
+			border-radius: toRem(12);
+			width: toRem(37);
+			aspect-ratio: 1 / 1;
+			transition: all 0.4s;
+			background-color: var(--color);
+		}
+		&:has(input:focus-visible) {
+			outline: toRem(2) solid #000;
+			border-radius: toRem(2);
+		}
+		&:has(input:checked) {
+			color: #000;
+			&::before {
+				transform: scale(0.9);
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+				&::before {
+					transform: scale(1.05);
+				}
+			}
+		}
+		&--white {
+			&::before{
+				border: toRem(1) solid #8a8989;
+			}
+
+		}
+	}
+	// .colors-filter__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+}
+
+// -------------------------- //
+
+.size-filter {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	text-align: center;
+	gap: toRem(20);
+	// .size-filter__item
+	&__item {
+		font-weight: 600;
+		text-transform: uppercase;
+		transition: all 0.4s;
+		border-radius: toRem(8);
+		border: toRem(1) solid #bebcbd;
+		padding: toRem(7);
+		cursor: pointer;
+		color: $darkColor;
+		line-height: 121.428571%; /* 17/14 */
+		font-size: toRem(14);
+		&:has(input:focus-visible) {
+			outline: toRem(2) solid #000;
+			border-radius: toRem(2);
+		}
+		&:has(input:checked) {
+			background-color: #000;
+			color: #fff;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+}
+
+// -------------------------- //
+
+.style-filter {
+	// .style-filter__item
+	&__item {
+		@extend .menu-filter__link;
+		cursor: pointer;
+		&:not(:last-child) {
+			margin-bottom: toRem(18);
+		}
+		&:has(input:focus-visible) {
+			outline: toRem(2) solid #000;
+			border-radius: toRem(2);
+		}
+		&:has(input:checked) {
+			color: $purplColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $purplColor;
+			}
+		}
+	}
+	// .style-filter__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+}
+
+// -------------------------- //
+// -------------------------- //

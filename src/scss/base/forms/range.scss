@@ -53,8 +53,8 @@
 	right: auto;
 }
 /* Give origins 0 height/width so they don't interfere with clicking the
-connect elements.
-*/
+ * connect elements.
+ */
 .noUi-vertical .noUi-origin {
 	top: -100%;
 	width: 0;
@@ -86,7 +86,7 @@ connect elements.
 	width: toRem(16);
 	height: toRem(16);
 	right: toRem(-8);
-	top: toRem(-7);
+	top: toRem(-8);
 }
 .noUi-vertical {
 	width: 18px;
