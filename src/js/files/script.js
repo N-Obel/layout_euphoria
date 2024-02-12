@@ -7,7 +7,6 @@ import { flsModules } from "./modules.js";
 "use strict"
 
 document.addEventListener("click", documentActions);
-
 function documentActions(e) {
 	const targetElement = e.target;
 	if (targetElement.closest('.icon-menu')) {
@@ -21,6 +20,7 @@ function documentActions(e) {
 		slideToggle(currentElement.nextElementSibling);
 	}
 }
+
 
 // Spollers
 const spollers = document.querySelectorAll('[data-spoller]');

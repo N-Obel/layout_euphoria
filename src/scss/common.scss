@@ -150,6 +150,9 @@
 		&::before {
 			transition: all 0.3s;
 		}
+		&--active {
+			color: red;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				color: red;
