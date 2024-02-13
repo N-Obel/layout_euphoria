@@ -1,0 +1,48 @@
+//========================================================================================================================================================
+
+.product {
+	@include adaptiveValue("padding-top", 108, 65);
+	// .product__container
+	&__container {
+	}
+	// .product__sliders
+	&__sliders {
+	}
+	// .product__slider
+	&__slider {
+		// .product__slider--next
+		&--next {
+		}
+		// .product__slider--prev
+		&--prev {
+		}
+	}
+	// .product__wrapper
+	&__wrapper {
+	}
+	// .product__slide
+	&__slide {
+	}
+	// .product__slider-thumbs
+	&__slider-thumbs {
+	}
+}
+
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.thumb-slider {
+	// .thumb-slider__wrapper
+	&__wrapper {
+	}
+	// .thumb-slider__slide
+	&__slide {
+	}
+}
+.swiper-button-next {
+}
+.swiper-button-prev {
+}

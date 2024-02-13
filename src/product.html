@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Product"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="page__product product">
+				<div class="product__container">
+					<div class="product__sliders">
+						<div class="product__slider swiper">
+							<div class="product__wrapper swiper-wrapper">
+								<div class="product__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+								<div class="product__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+								<div class="product__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+							</div>
+						</div>
+						<div thumbsSlider="" class="product__slider-thumbs thumb-slider swiper">
+							<div class="thumb-slider__wrapper swiper-wrapper">
+								<div class="thumb-slider__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+								<div class="thumb-slider__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+								<div class="thumb-slider__slide swiper-slide">
+									<img src="@img/product/01.jpg" alt="Image">
+								</div>
+							</div>
+							<div class="product__slider--next swiper-button-next"></div>
+							<div class="product__slider--prev swiper-button-prev"></div>
+						</div>
+					</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html
