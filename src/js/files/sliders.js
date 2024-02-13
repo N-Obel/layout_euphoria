@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, Pagination, Parallax } from 'swiper/modules';
+import { Navigation, Pagination, Parallax, Thumbs } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -146,36 +146,102 @@ function initSliders() {
 	if (document.querySelector('.reviews__slider')) { // Вказуємо склас потрібного слайдера
 		// Створюємо слайдер
 		new Swiper('.reviews__slider', { // Вказуємо склас потрібного слайдера
-		// Optional parameters
-		modules: [Navigation, Pagination],
-		loop: true,
-		//autoHeight: true,
-		speed: 800,
-		spaceBetween: 23,
-		slidesPerView: 3,
-		// If we need pagination
-		pagination: {
-			el: '.reviews__pages',
-			clickable: true
-		},
-		// Responsive breakpoints
-		breakpoints: {
-			320: {
-				slidesPerView: 1.3,
-				spaceBetween: 15
+			// Optional parameters
+			modules: [Navigation, Pagination],
+			loop: true,
+			//autoHeight: true,
+			speed: 800,
+			spaceBetween: 23,
+			slidesPerView: 3,
+			// If we need pagination
+			pagination: {
+				el: '.reviews__pages',
+				clickable: true
 			},
-			480: {
-				slidesPerView: 2,
-				spaceBetween: 15
-			},
-			991: {
-				slidesPerView: 3,
-				spaceBetween: 23,
+			// Responsive breakpoints
+			breakpoints: {
+				320: {
+					slidesPerView: 1.3,
+					spaceBetween: 15
+				},
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 15
+				},
+				991: {
+					slidesPerView: 3,
+					spaceBetween: 23,
+				}
 			}
-		}
-	});
+		});
+	}
+	if (document.querySelector('.thumb-slider')) { // Вказуємо склас потрібного слайдера
+		// Створюємо слайдер
+		new Swiper('.thumb-slider', { // Вказуємо склас потрібного слайдера
+			// Optional parameters
+			modules: [Navigation],
+			loop: true,
+			//autoHeight: true,
+			speed: 800,
+			spaceBetween: 23,
+			slidesPerView: 3,
+			freeMode: true,
+			direction: "vertical",
+			watchSlidesProgress: true,
+			navigation: {
+				prevEl: '.thumb-slider__arrow--prev',
+				nextEl: '.thumb-slider__arrow--next',
+			},
+			// Responsive breakpoints
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1.3,
+					spaceBetween: 15
+				},
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 15
+				},
+				991: {
+					slidesPerView: 3,
+					spaceBetween: 23,
+				}
+			}
+			*/
+		});
+	}
+	if (document.querySelector('.product__slider')) { // Вказуємо склас потрібного слайдера
+		// Створюємо слайдер
+		new Swiper('.product__slider', { // Вказуємо склас потрібного слайдера
+			// Optional parameters
+			modules: [Thumbs],
+			spaceBetween: 10,
+			thumbs: {
+				swiper: ".thumb-slider",
+			},
+			// Responsive breakpoints
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1.3,
+					spaceBetween: 15
+				},
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 15
+				},
+				991: {
+					slidesPerView: 3,
+					spaceBetween: 23,
+				}
+			}
+			*/
+		});
 	}
 }
+
+
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
 function initSlidersScroll() {
 	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
