@@ -13,6 +13,17 @@
 		display: flex;
 		align-items: center;
 		gap: toRem(34);
+		position: relative;
+		background-color: #F6F6F6;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			background-color: #F6F6F6;
+		}
 	}
 	// .product__slider
 	&__slider {
@@ -42,7 +53,6 @@
 
 .thumb-slider {
 	flex: 0 0 toRem(75);
-
 	// .thumb-slider__wrapper
 	&__wrapper {
 	}
@@ -76,24 +86,24 @@
 	}
 	// .thumb-slider__arrow
 	&__arrow {
-			cursor: pointer;
-			width: toRem(21);
-			height: toRem(21);
-			border-radius: 50%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: toRem(6);
-			box-shadow: toRem(0.75) toRem(0.75) toRem(3) 0 rgba(0, 0, 0, 0.4);
-			color: $darkColor;
-			transition: all 0.3s;
-			background-color: #fff;
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: $darkColor;
-					color: #fff;
-				}
+		cursor: pointer;
+		width: toRem(21);
+		height: toRem(21);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: toRem(6);
+		box-shadow: toRem(0.75) toRem(0.75) toRem(3) 0 rgba(0, 0, 0, 0.4);
+		color: $darkColor;
+		transition: all 0.3s;
+		background-color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $darkColor;
+				color: #fff;
 			}
+		}
 		// .thumb-slider__arrow--next
 		&--next {
 		}
@@ -102,3 +112,6 @@
 		}
 	}
 }
+
+//========================================================================================================================================================
+

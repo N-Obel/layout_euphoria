@@ -1,13 +1,15 @@
 //<QUANTITY>
 // Сніппет (HTML): qa
 .quantity {
-	width: 88px;
-	height: 40px;
+	width: toRem(100);
+	height: toRem(36);
 	display: flex;
-	border: 1px solid rgba(166, 166, 166, 0.45);
+	border-radius: toRem(12);
+	color: $darkColor;
+	background-color: #F6F6F6;
 	// .quantity__button
 	&__button {
-		flex: 0 0 30px;
+		flex: 0 0 toRem(30);
 		position: relative;
 		cursor: pointer;
 		&::before,
@@ -26,7 +28,7 @@
 			&:hover {
 				&::before,
 				&::after {
-					background-color: rgba(0, 0, 0, 0.5);
+					background-color: $darkColor;
 				}
 			}
 		}
@@ -44,11 +46,13 @@
 	&__input {
 		flex: 1 1 auto;
 		input {
+			color: $darkColor;
 			height: 100%;
-			color: #a6a6a6;
-			font-size: 12px;
+			font-size: toRem(12);
+			font-weight: 500;
 			width: 100%;
 			text-align: center;
+			background-color: #F6F6F6;
 		}
 	}
 }

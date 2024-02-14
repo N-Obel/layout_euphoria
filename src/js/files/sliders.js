@@ -179,19 +179,14 @@ function initSliders() {
 		// Створюємо слайдер
 		new Swiper('.thumb-slider', { // Вказуємо склас потрібного слайдера
 			// Optional parameters
-			modules: [Navigation],
-			loop: true,
+		//	modules: [Navigation],	
 			//autoHeight: true,
-			speed: 800,
+			
 			spaceBetween: 23,
 			slidesPerView: 3,
 			freeMode: true,
 			direction: "vertical",
 			watchSlidesProgress: true,
-			navigation: {
-				prevEl: '.thumb-slider__arrow--prev',
-				nextEl: '.thumb-slider__arrow--next',
-			},
 			// Responsive breakpoints
 			/*
 			breakpoints: {
@@ -215,10 +210,16 @@ function initSliders() {
 		// Створюємо слайдер
 		new Swiper('.product__slider', { // Вказуємо склас потрібного слайдера
 			// Optional parameters
-			modules: [Thumbs],
+			modules: [Thumbs, Navigation],
 			spaceBetween: 10,
+			loop: true,
+			speed: 600,
 			thumbs: {
 				swiper: ".thumb-slider",
+			},
+			navigation: {
+				prevEl: '.thumb-slider__arrow--next',
+				nextEl: '.thumb-slider__arrow--prev',
 			},
 			// Responsive breakpoints
 			/*
