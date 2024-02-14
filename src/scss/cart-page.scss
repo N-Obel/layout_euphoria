@@ -41,9 +41,15 @@
 	&__body {
 		display: grid;
 		grid-template-rows: repeat(3, 1fr);
-		@include adaptiveValue("row-gap", 50, 25, 0, $containerWidth, 767.98);
+		@include adaptiveValue("gap", 50, 20, 0, $containerWidth, 767.98);
 		@include adaptiveValue("padding-top", 70, 30, 0, $containerWidth, 767.98);
-		@include adaptiveValue("padding-bottom", 50, 30, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-bottom", 50, 20, 0, $containerWidth, 479.98);
+		@media (max-width: em(530)) {
+			// display: flex;
+			// flex-wrap: wrap;
+			grid-template-rows: auto;
+			grid-template-columns: repeat(auto-fill, minmax(toRem(220), 1fr));
+		}
 	}
 	// .cart__titles
 	&__titles {
@@ -51,18 +57,33 @@
 		grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
 		@include adaptiveValue("column-gap", 60, 20, 0, $containerWidth, 767.98);
 		justify-items: center;
-		@media (max-width: $mobile) {
-			h4 {
+		h4 {
+			@media (max-width: $mobile) {
 				&:nth-child(2) {
-					//	display: none;
+					display: none;
 				}
 				&:nth-child(4) {
-					//	display: none;
+					display: none;
 				}
 			}
+			@media (max-width: em(530)) {
+				&:nth-child(3) {
+					display: none;
+				}
+				&:nth-child(5) {
+					display: none;
+				}
+				&:nth-child(6) {
+					display: none;
+				}
+			}
+		}
+		@media (max-width: $mobile) {
 			grid-template-columns: 2fr 1fr 1fr 1fr;
 		}
-
+		@media (max-width: em(530)) {
+			grid-template-columns: auto;
+		}
 		color: #fff;
 		font-size: toRem(18);
 		font-weight: 600;
@@ -93,7 +114,6 @@
 	}
 	// .cart__title
 	&__title {
-	
 	}
 	// .cart__row
 	&__row {
@@ -102,17 +122,21 @@
 		justify-items: center;
 		align-items: center;
 		@include adaptiveValue("column-gap", 60, 20, 0, $containerWidth, 767.98);
-		@include adaptiveValue("padding-bottom", 50, 25, 0, $containerWidth, 767.98);
+		@include adaptiveValue("padding-bottom", 50, 20, 0, $containerWidth, 767.98);
 		&:not(:last-child) {
 			border-bottom: toRem(1) solid #bebcbd;
 		}
 		@media (max-width: $mobile) {
-			display: flex; //! тут закончил!! дальше пробовать адаптив через флекс
+			grid-template-columns: 2fr 1fr 1fr 1fr;
+		}
+		@media (max-width: em(530)) {
+			display: flex;
+			flex-direction: column;
+			row-gap: toRem(15);
 		}
 	}
 	// .cart__item
 	&__item {
-		
 	}
 	// .cart__price
 	&__price {
@@ -120,10 +144,10 @@
 		font-weight: 700;
 		color: $darkColor;
 		@media (max-width: $mobile) {
-			// display: none;
+			display: none;
 		}
 		&--total {
-			//	display: block;
+			display: block;
 		}
 	}
 	// .cart__quantity
@@ -135,7 +159,7 @@
 		font-weight: 700;
 		color: #bebcbd;
 		@media (max-width: $mobile) {
-			//display: none;
+			display: none;
 		}
 	}
 	// .cart__delete
@@ -184,6 +208,9 @@
 	@media (max-width: $tablet) {
 		flex-direction: column;
 	}
+	@media (max-width: em(530)) {
+		align-items: center;
+	}
 	// .item-cart__image
 	&__image {
 		flex: 0 0 toRem(105);
@@ -195,9 +222,15 @@
 			object-fit: cover;
 			border-radius: toRem(12);
 		}
+		@media (max-width: em(530)) {
+			flex: 0 0 toRem(120);
+		}
 	}
 	// .item-cart__body
 	&__body {
+		@media (max-width: em(530)) {
+			text-align: center;
+		}
 	}
 	// .item-cart__title
 	&__title {
@@ -233,6 +266,161 @@
 		}
 	}
 }
+
+//====================================================================================================
+// --== DISCOUNT ==--
+//====================================================================================================
+
+.discount {
+	//background-color: #918d8d;
+	background-color: #f6f6f6;
+
+	// .discount__container
+	&__container {
+	}
+	// .discount__form
+	&__form {
+	}
+}
+
+.form-discount {
+	// .form-discount__body
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(10);
+		@media (max-width: em(561)) {
+			flex-direction: column;
+		}
+	}
+	// .form-discount__codes
+	&__codes {
+		padding-top: toRem(40);
+		@media (max-width: $tablet) {
+			padding-top: toRem(20);
+		}
+		@media (min-width: em(561)) {
+			flex: 0 1 30.241935%; /* 375/1240 */
+		}
+	}
+	// .form-discount__title
+	&__title {
+		color: $darkColor;
+		@include adaptiveValue("font-size", 24, 18, 0, $containerWidth, 767.98);
+		font-weight: 600;
+		line-height: 122%;
+		&:not(:last-child) {
+			margin-bottom: toRem(10);
+		}
+	}
+	// .form-discount__text
+	&__text {
+		font-size: toRem(16);
+		line-height: 122%;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 15, 0, $containerWidth, 767.98);
+		}
+	}
+	// .form-discount__item
+	&__item {
+		min-width: toRem(375);
+		display: flex;
+		border-radius: toRem(12);
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			min-width: toRem(250);
+			gap: toRem(5);
+		}
+		@media (max-width: em(561)) {
+			flex-direction: row;
+			gap: toRem(0);
+		}
+	}
+	// .form-discount__input
+	&__input {
+		//min-width: toRem(214);
+		width: 100%;
+		padding: toRem(12);
+		border-radius: toRem(12) 0 0 toRem(12);
+		transition: all 0.3s;
+		&:focus {
+			outline: toRem(1) solid $purplColor;
+		}
+		@media (max-width: $mobile) {
+			border-radius: toRem(12);
+		}
+		@media (max-width: em(561)) {
+			border-radius: toRem(12) 0 0 toRem(12);
+		}
+	}
+	// .form-discount__button
+	&__button {
+		min-width: toRem(161);
+		padding: toRem(12);
+		border-radius: 0 toRem(12) toRem(12) 0;
+		@media (max-width: $mobile) {
+			border-radius: toRem(12);
+		}
+		@media (max-width: em(561)) {
+			border-radius: 0 toRem(12) toRem(12) 0;
+		}
+		&--big {
+			min-width: toRem(232);
+			border-radius: toRem(12);
+			margin: 0 auto;
+			@media (max-width: $mobile) {
+				min-width: toRem(190);
+			}
+			@media (max-width: $mobile) {
+				width: 100%;
+			}
+		}
+	}
+	// .form-discount__values
+	&__values {
+		background-color: #f3f3f3;
+		padding: toRem(40) toRem(90);
+		@media (max-width: $tablet) {
+			padding: toRem(20);
+		}
+		@media (min-width: em(561)) {
+			flex: 0 1 37.5%; /* 465/1240 */
+		}
+	}
+	// .form-discount__sub-total
+	&__sub-total {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(10);
+		color: $darkColor;
+		@include adaptiveValue("font-size", 22, 18, 0, $containerWidth, 767.98);
+		font-weight: 500;
+		letter-spacing: toRem(0.44);
+		line-height: 122%;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 15, 10, 0, $containerWidth, 767.98);
+		}
+	}
+	// .form-discount__shipping
+	&__shipping {
+		@extend .form-discount__sub-total;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 20, 0, $containerWidth, 767.98);
+		}
+	}
+	// .form-discount__total
+	&__total {
+		@extend .form-discount__sub-total;
+		font-weight: 700;
+		@include adaptiveValue("padding-bottom", 50, 20, 0, $containerWidth, 767.98);
+		border-bottom: toRem(1) solid #bebcbd;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 20, 0, $containerWidth, 767.98);
+		}
+	}
+}
+
+//========================================================================================================================================================
 
 /*
 	&__table {

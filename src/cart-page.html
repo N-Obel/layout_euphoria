@@ -10,8 +10,6 @@
 		<main class="page">
 			<section class="page__cart cart">
 				<div class="cart__container">
-
-
 					<div class="cart__header">
 						<ul class="cart__breadcrumbs breadcrumbs">
 							<li class="breadcrumbs__item _icon-ch-right">
@@ -119,6 +117,40 @@
 					</div>
 				</div>
 			</section>
+			<div class="page__discount discount">
+				<div class="discount__container">
+					<form class="discount__form form-discount" action="files/sendmail/sendmail.php" method="POST" id="form-discount">
+						<div class="form-discount__body">
+							<div class="form-discount__codes">
+								<h2 class="form-discount__title">Discount Codes</h2>
+								<div class="form-discount__text">
+									<p>Enter your coupon code if you have one</p>
+								</div>
+								<div class="form-discount__item">
+									<input autocomplete="off" type="text" name="code" data-error="Error" class="form-discount__input input">
+									<button type="submit" class="form-discount__button button">Apply Coupon</button>
+								</div>
+							</div>
+							<div class="form-discount__values">
+								<div class="form-discount__sub-total">
+									<p>Sub Total</p>
+									<p>$513.00</p>
+								</div>
+								<div class="form-discount__shipping">
+									<p>Shipping</p>
+									<p>$5.00</p>
+								</div>
+								<div class="form-discount__total">
+									<p>Grand Total</p>
+									<p>$518.00</p>
+								</div>
+								<button form="form-discount" type="submit" class="form-discount__button form-discount__button--big button">Proceed To Checkout</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>
