@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Checkout"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			<section class="page__checkout checkout">
+				<div class="checkout__container">
+					<div class="checkout__top">
+						<ul class="checkout__breadcrumbs breadcrumbs">
+							<li class="breadcrumbs__item _icon-ch-right">
+								<a href="home.html" class="breadcrumbs__link">Home</a>
+							</li>
+							<li class="breadcrumbs__item _icon-ch-right">
+								<a href="#" class="breadcrumbs__link">My Account</a>
+							</li>
+							<li class="breadcrumbs__item">
+								<a href="#" class="breadcrumbs__link breadcrumbs__link--active">Check Out</a>
+							</li>
+						</ul>
+					</div>
+					<div class="checkout__header">
+						<h1 class="checkout__title title">Check Out</h1>
+						<h2 class="checkout__subtitle">Billing Details</h2>
+					</div>
+					<div class="checkout__body">
+						<div class="checkout__forms">
+							<form class="checkout__form details-form" action="files/sendmail/sendmail.php" method="POST">
+								<div class="details-form__body">
+									<div class="details-form__item">
+										<label for="name-1" class="details-form__label">First Name*</label>
+										<input id="name-1" class="details-form__input" required placeholder="First Name" type="text" name="name" autocomplete="off">
+									</div>
+									<div class="details-form__item">
+										<label for="surname-1" class="details-form__label">Last Name*</label>
+										<input id="surname-1" class="details-form__input" required placeholder="Last Name" type="text" name="surname" autocomplete="off">
+									</div>
+									<div class="details-form__item">
+										<label for="country-1" class="details-form__label">Country / Region*</label>
+										<input id="country-1" class="details-form__input" required placeholder="Country / Region" type="text" name="country" autocomplete="off">
+									</div>
+									<div class="details-form__item">
+										<label for="company-1" class="details-form__label">Company Name</label>
+										<input id="company-1" class="details-form__input" placeholder="Company (optional)" type="text" name="company" autocomplete="off">
+									</div>
+									<div class="details-form__item">
+										<label for="address-1" class="details-form__label">Street Address*</label>
+										<input id="address-1" class="details-form__input" required placeholder="House number and street name" type="text" name="address" autocomplete="off">
+									</div>
+									<div class="details-form__item">
+										<label for="apartment-1" class="details-form__label">Apt, suite, unit</label>
+										<input id="apartment-1" class="details-form__input" placeholder="apartment, suite, unit, etc. (optional)" type="text" name="apartment" autocomplete="off">
+									</div>
+									<!--  -->
+									<div class="details-form__item details-form__item--thirdpart">
+										<label for="city-1" class="details-form__label">City*</label>
+										<input id="city-1" class="details-form__input" required placeholder="Town / City" type="text" name="city" autocomplete="off">
+									</div>
+									<div class="details-form__item details-form__item--thirdpart">
+										<label for="state-1" class="details-form__label">State*</label>
+										<select id="state-1" class="details-form__input" required name="state" data-class-modif="form">
+											<option value="">State</option>
+											<option value="State-1">State-1</option>
+											<option value="State-2">State-2</option>
+											<option value="State-3">State-3</option>
+										</select>
+									</div>
+									<div class="details-form__item details-form__item--thirdpart">
+										<label for="postal-1" class="details-form__label">Postal Code*</label>
+										<input id="postal-1" class="details-form__input" placeholder="Postal Code" type="text" name="postal" autocomplete="off">
+									</div>
+									<!--  -->
+									<div class="details-form__item">
+										<label for="phone-1" class="details-form__label">Phone*</label>
+										<input id="phone-1" class="details-form__input" placeholder="Phone" type="tel" name="phone" autocomplete="off">
+									</div>
+								</div>
+								<button form="details-form" type="submit" class="details-form__button button">Continue to delivery</button>
+								<div class="details-form__checkbox checkbox">
+									<div class="checkbox__item">
+										<input id="checkbox-1" class="checkbox__input" checked type="checkbox" name="checkbox-3">
+										<label for="checkbox-1" class="checkbox__label"><span class="checkbox__text">Save my information for a faster checkout</span></label>
+									</div>
+								</div>
+							</form>
+							<div class="box"></div>
+						</div>
+						<div class="checkout__order">
+							<!-- order data -->
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_js.htm',{})
+</body>
+
+</html>

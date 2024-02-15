@@ -1,0 +1,140 @@
+//====================================================================================================
+// --== CHECKOUT ==--
+//====================================================================================================
+
+.checkout {
+	@include adaptiveValue("padding-top", 108, 65);
+	// .checkout__container
+	&__container {
+	}
+	// .checkout__top
+	&__top {
+		padding-top: toRem(20);
+		@include adaptiveValue("margin-bottom", 50, 30, 0, $containerWidth, 767.98);
+	}
+	// .checkout__breadcrumbs
+	&__breadcrumbs {
+	}
+	// .checkout__header
+	&__header {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 30, 0, $containerWidth, 767.98);
+		}
+	}
+	// .checkout__body
+	&__body {
+		display: flex;
+	}
+	// .checkout__title
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 20, 10, 0, $containerWidth, 767.98);
+		}
+	}
+	// .checkout__subtitle
+	&__subtitle {
+		color: $darkColor;
+		@extend %CS;
+		@include adaptiveValue("font-size", 22, 20, 0, $containerWidth, 767.98);
+		font-weight: 600;
+		line-height: 150%; /* 33/22 */
+		letter-spacing: toRem(0.44);
+	}
+	// .checkout__forms
+	&__forms {
+		flex: 0 1 64.516129%; /* 800/1240 */
+	}
+	// .checkout__order
+	&__order {
+		margin-left: toRem(40);
+		flex: 0 1 32.258065%; /* 400/1240 */
+	}
+	// .checkout__form
+	&__form {
+		//padding-bottom: toRem(30);
+		@include adaptiveValue("padding-bottom", 32, 20, 0, $containerWidth, 767.98);
+		&:not(:last-child) {
+			border-bottom: toRem(1) solid #edeef2;
+			@include adaptiveValue("margin-bottom", 62, 20, 0, $containerWidth, 767.98);
+		}
+	}
+}
+
+.details-form {
+	// .details-form__body
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		@include adaptiveValue("row-gap", 28, 15, 0, $containerWidth, 767.98);
+		margin: 0 toRem(-19);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 40, 20, 0, $containerWidth, 767.98);
+		}
+	}
+	// .details-form__item
+	&__item {
+		flex: 1 1 50%;
+		padding: 0 toRem(19);
+		min-width: toRem(290);
+		&:last-child {
+			@media (min-width: em(882.98)) {
+				flex-grow: 0;
+			}
+		}
+		// .details-form__item--thirdpart
+		&--thirdpart {
+			@media (min-width: em(882.98)) {
+				flex: 1 1 33.333%;
+				min-width: toRem(246);
+			}
+		}
+	}
+	// .details-form__label
+	&__label {
+		display: inline-block;
+		color: $darkColor;
+		font-weight: 600;
+		line-height: 122%;
+		letter-spacing: toRem(0.36);
+		//margin-bottom: toRem(10);
+		@include adaptiveValue("margin-bottom", 10, 5, 0, $containerWidth, 767.98);
+	}
+	// .details-form__input
+	&__input {
+		padding: toRem(16) toRem(20);
+		width: 100%;
+		border-radius: toRem(8);
+		background: #f6f6f6;
+		height: toRem(49);
+		&::placeholder {
+			font-size: toRem(16);
+			line-height: 122%;
+			transition: opacity 0.4s;
+		}
+		&:focus {
+			&::placeholder {
+				opacity: 0;
+			}
+			outline: toRem(2) solid $purplColor;
+		}
+	}
+	// .details-form__button
+	&__button {
+		min-width: toRem(195);
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+			//@include adaptiveValue("margin-bottom", 20, 15, 0, $containerWidth, 767.98);
+		}
+		@media (max-width: em(882.98)) {
+			padding: toRem(14) toRem(20);
+		}
+		@media (max-width: $mobile) {
+			width: 100%;
+		}
+	}
+	// .details-form__checkbox
+	&__checkbox {
+	}
+}
+
+//========================================================================================================================================================

@@ -7,6 +7,14 @@
 	@media (max-width: $mobile) {
 		order: 3;
 	}
+	.details-form__item--thirdpart & {
+		margin-right: 0;
+		padding: toRem(16) toRem(20);
+		width: 100%;
+		border-radius: toRem(8);
+		background: #f6f6f6;
+		height: toRem(49);
+	}
 	// .select__body
 	&__body {
 		position: relative;
@@ -27,6 +35,11 @@
 		line-height: 122%;
 		@media (max-width: $mobile) {
 			font-size: toRem(24);
+			.details-form__item--thirdpart & {
+				@media (max-width: $mobile) {
+					font-size: toRem(16);
+				}
+			}
 		}
 	}
 	// .select__value
@@ -82,17 +95,21 @@
 		color: #000;
 		position: absolute;
 		top: calc(100% - toRem(1));
-		border-radius: 0 0 4px toRem(4);
+		border-radius: 0 0 toRem(4) toRem(4);
 		min-width: 100%;
 		left: 0;
-		border-top: 0;
 		border: toRem(1) solid $purplColor;
 		border-top: 0;
 		padding: toRem(10) 0 toRem(5) 0;
-		@media (min-width:$mobile){
+		@media (min-width: $mobile) {
 			background-color: rgb(255, 255, 255, 0.97);
 		}
-		
+		.details-form__item--thirdpart & {
+			border-radius: 0 0 toRem(8) toRem(8);
+			background: #f6f6f6;
+			margin: toRem(0) toRem(-19);
+			border: toRem(1) solid transparent;
+		}
 	}
 	// .select__scroll
 	&__scroll {
@@ -127,6 +144,15 @@
 		}
 		@media (max-width: $mobile) {
 			font-size: toRem(24);
+			.details-form__item--thirdpart & {
+				@media (max-width: $mobile) {
+					font-size: toRem(16);
+				}
+			}
+		}
+		.details-form__item--thirdpart & {
+			padding: toRem(5) toRem(20);
+			width: 100%;
 		}
 	}
 

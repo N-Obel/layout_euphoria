@@ -46,5 +46,9 @@
 				}
 			}
 		}
+		.details-form__checkbox & {
+			color: $darkColor;
+			font-weight: 400;
+		}
 	}
 }
