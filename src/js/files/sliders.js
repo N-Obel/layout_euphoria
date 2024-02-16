@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation, Pagination, Parallax, Thumbs } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, Parallax, Thumbs } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -33,7 +33,7 @@ function initSliders() {
 		new Swiper('.hero', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation, Pagination, Parallax],
+			modules: [Navigation, Pagination, Parallax, Autoplay],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -45,17 +45,13 @@ function initSliders() {
 			//simulateTouch: false,
 			//loop: true,
 			//preloadImages: false,
-			//lazy: true,
-
-			/*
+			//lazy: true,		
 			// Ефекти
 			effect: 'fade',
 			autoplay: {
-				delay: 3000,
+				delay: 2500,
 				disableOnInteraction: false,
 			},
-			*/
-
 			// Пагінація
 			pagination: {
 				el: '.hero__pagination',

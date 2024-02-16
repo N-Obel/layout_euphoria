@@ -29,7 +29,7 @@
 					</div>
 					<div class="checkout__body">
 						<div class="checkout__forms">
-							<form class="checkout__form details-form" action="files/sendmail/sendmail.php" method="POST">
+							<form class="checkout__form details-form" action="files/sendmail/sendmail.php" method="POST" id="details-form">
 								<div class="details-form__body">
 									<div class="details-form__item">
 										<label for="name-1" class="details-form__label">First Name*</label>
@@ -87,10 +87,166 @@
 									</div>
 								</div>
 							</form>
-							<div class="box"></div>
+							<form class="checkout__form shipping-form" action="files/sendmail/sendmail.php" method="POST" id="shipping-form">
+								<div class="shipping-form__body">
+									<div class="shipping-form__header">
+										<h4 class="shipping-form__title">Shipping Address</h4>
+										<div class="shipping-form__text">Select the address that matches your card or payment method.</div>
+									</div>
+									<div class="shipping-form__item item-shipping">
+										<div class="item-shipping__body">
+											<div class="item-shipping__row">
+												<input id="shipping-1" class="item-shipping__input" type="radio" name="shipping" checked value="billing">
+												<label for="shipping-1" class="item-shipping__label">Same as Billing address</label>
+											</div>
+											<div class="item-shipping__row">
+												<input id="shipping-2" class="item-shipping__input" type="radio" name="shipping" value="shipping">
+												<label for="shipping-2" class="item-shipping__label">Use a different shipping address</label>
+											</div>
+										</div>
+									</div>
+									<div class="shipping-form__header">
+										<h4 class="shipping-form__title">Shipping Method</h4>
+									</div>
+									<div class="shipping-form__item item-shipping">
+										<div class="item-shipping__body">
+											<div class="item-shipping__row">
+												<div class="item-shipping__date">Arrives by Monday, June 7</div>
+											</div>
+											<div class="item-shipping__row">
+												<div class="item-shipping__charges charges">
+													<div class="charges__body">
+														<div class="charges__title">Delivery Charges</div>
+														<div class="charges__descr">Additional fess may apply</div>
+													</div>
+													<div class="charges__price">$5.00</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="shipping-form__header">
+										<h4 class="shipping-form__title">Payment Method</h4>
+										<div class="shipping-form__text">All transactions are secure and encrypted.</div>
+									</div>
+									<div class="shipping-form__item item-shipping">
+										<div class="item-shipping__body">
+											<div class="item-shipping__row">
+												<input id="pay-1" class="item-shipping__input" type="radio" name="pay" checked>
+												<label for="pay-1" class="item-shipping__label">Credit Card</label>
+												<p>We accept all major credit cards.</p>
+												<div class="item-shipping__content content">
+													<div class="content__images">
+														<img src="@img/other/gpay.svg" alt="Image">
+														<img src="@img/other/visa.svg" alt="Image">
+														<img src="@img/other/paypal.svg" alt="Image">
+														<img src="@img/other/paypass.svg" alt="Image">
+													</div>
+													<div class="content__form form-content">
+														<div class="form-content__item">
+															<input class="form-content__input" required placeholder="Card number" type="number" name="card-number">
+														</div>
+														<div class="form-content__item">
+															<input class="form-content__input" required placeholder="Name of card" type="text" name="card-name">
+														</div>
+														<div class="form-content__item">
+															<input class="form-content__input" required placeholder="Expiration date (MM/YY)" type="number" name="card-date">
+														</div>
+														<div class="form-content__item form-content__item--code">
+															<input data-validate class="form-content__input" required placeholder="Security Code" type="password" name="card-code">
+															<button type="button" class="form-content__button _icon-eye-border form-content__viewpass" aria-label="eye password"></button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="item-shipping__row">
+												<input id="pay-2" class="item-shipping__input" type="radio" name="pay">
+												<label for="pay-2" class="item-shipping__label">Cash on delivery</label>
+												<p>Pay with cash upon delivery.</p>
+											</div>
+											<div class="item-shipping__row">
+												<input id="pay-3" class="item-shipping__input" type="radio" name="pay">
+												<label for="pay-3" class="item-shipping__label">Paypol</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button form="shipping-form" type="submit" class="shipping-form__button button">Pay Now</button>
+							</form>
 						</div>
-						<div class="checkout__order">
-							<!-- order data -->
+						<div class="checkout__order order-checkout">
+							<div class="order-checkout__body">
+								<h2 class="order-checkout__title">Order Summary</h2>
+								<div class="order-checkout__content">
+									<div class="order-checkout__items">
+										<div class="order-checkout__item item-checkout">
+											<div class="item-checkout__image">
+												<img src="@img/limelight/lime12.jpg" alt="Image">
+											</div>
+											<div class="item-checkout__body">
+												<div class="item-checkout__info">
+													<h5 class="item-checkout__title">
+														<a href="#" class="item-checkout__title-link">Blue Flower Print <span>x 1</span></a>
+													</h5>
+													<div class="item-checkout__descr">Color : <span>Yellow</span></div>
+												</div>
+												<div class="item-checkout__price"><span>$29.00</span></div>
+											</div>
+										</div>
+										<div class="order-checkout__item item-checkout">
+											<div class="item-checkout__image">
+												<img src="@img/limelight/lime04.jpg" alt="Image">
+											</div>
+											<div class="item-checkout__body">
+												<div class="item-checkout__info">
+													<h5 class="item-checkout__title">
+														<a href="#" class="item-checkout__title-link">Levender Hoodie <span>x 2</span></a>
+													</h5>
+													<div class="item-checkout__descr">Colour : <span>Levender</span></div>
+												</div>
+											</div>
+											<div class="item-checkout__price"><span>$119.00</span></div>
+										</div>
+										<div class="order-checkout__item item-checkout">
+											<div class="item-checkout__image">
+												<img src="@img/limelight/lime01.jpg" alt="Image">
+											</div>
+											<div class="item-checkout__body">
+												<div class="item-checkout__info">
+													<h5 class="item-checkout__title">
+														<a href="#" class="item-checkout__title-link">Black Sweatshirt <span>x 2</span></a>
+													</h5>
+													<div class="item-checkout__descr">Color : <span>Black</span></div>
+												</div>
+												<div class="item-checkout__price"><span>$123.00</span></div>
+											</div>
+										</div>
+									</div>
+									<div class="order-checkout__total total-order">
+										<div class="total-order__subtotal">
+											<div class="total-order__item">
+												<div class="total-order__descr">Subtotal <span>( 3 items )</span></div>
+												<div class="total-order__price">$513.00</div>
+											</div>
+											<div class="total-order__item">
+												<div class="total-order__descr">Savings</div>
+												<div class="total-order__price">-$30.00</div>
+											</div>
+										</div>
+										<div class="total-order__shipping">
+											<div class="total-order__item">
+												<div class="total-order__descr">Shipping</div>
+												<div class="total-order__price">-$5.00</div>
+											</div>
+										</div>
+										<div class="total-order__total">
+											<div class="total-order__item">
+												<div class="total-order__descr">Total</div>
+												<div class="total-order__price">$478.00</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
